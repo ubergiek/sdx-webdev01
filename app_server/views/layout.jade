@@ -2,10 +2,31 @@ doctype html
 html
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title= title
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='/') SDx Webdev
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar-main.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/rg/') ResGuru
+          ul.nav.navbar-nav
+            li
+              a(href='/about/') About
+    .container
+      block content
+  
+      footer
+        .row
+          .col-xs-12
+            small &copy; Sirius | SDx Webdev
+
     link(rel='stylesheet', href='/javascripts/jquery-3.1.1.min.js.css')
     link(rel='stylesheet', href='/bootstrap/js/bootstrap.min.js')
