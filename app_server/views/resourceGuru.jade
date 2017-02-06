@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  #banner.page-header
+  h1= title
+  script(type="text/javascript").
+    function myFunction() {
+      // Declare variables 
+      var input, filter, table, tr, td, i, tdSkills;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          tdSkills = tr[i].getElementsByTagName("td")[2];
+          if ((td.innerHTML.toUpperCase().indexOf(filter) > -1) || (tdSkills.innerHTML.toUpperCase().indexOf(filter) > -1)) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        } 
+      }
+    }
+
+  .row
+    .col-xs-12.col-sm-3
+      p <b>Reporting</b>
+      a(href='/auth') Authenticate<br>
+      a(href='/rgGenerateReport') Resource Report<br>
+      a(href='/rgEmailReport') Email Report
+    .col-xs-12.col-sm-8
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+      table#myTable
+        thead
+        tr.header: th Name
+          th Job Title
+          th Skills
+        tbody
+          if data !== undefined
+            each val, index in data
+              tr
+                td #{val.name}
+                td #{val.job_title}
+                td #{val.skills}
+
+      
