@@ -13,4 +13,6 @@ router.get('/auth', ctrlResourceGuru.auth);
 router.get('/callback', ctrlResourceGuru.callback);
 router.get('/testemail', ctrlResourceGuru.testEmail);
 router.get('/rgEmailReport', ctrlResourceGuru.rgEmailReport);
+router.get('/rgGetProjectList', ctrlResourceGuru.rgGetProjectList)
+router.get('/rgGetCurrentPermissions', ctrlResourceGuru.rgGetCurrentPermissions);
 module.exports = router;
